@@ -1,9 +1,11 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,600,700);
 @import url(https://fonts.googleapis.com/css?family=Lato:700);
 
-$footer_height: 657px;
 $content_width: 980px;
-$page_min_width: 1000px;
+$screen-sm-min: 768px;
+$screen-md-min: 992px;
+$screen-lg-min: 1200px;
+
 html, body {
   margin: 0;
   padding: 0;
@@ -11,30 +13,41 @@ html, body {
   font-size: 12px;
   position: relative;
   height: 100%;
-  min-width: $page_min_width;
   font-family: 'Raleway';
 }
 
 .page_wraper {
   min-height: 100%;
   /* equal to footer height */
-  margin-bottom: -$footer_height;
+  @media (min-width: $screen-md-min) {
+    margin-bottom: -657px;
+  }
+
+  margin-bottom: -500px;
   width: 100%;
 }
 
 header {
-  height: 147px;
+  @media (min-width: $screen-md-min) {
+    height: 147px;
+  }
+  height: 200px;
   .container {
     height: 100%;
   }
   .row {
     height: 100%;
-    & > div {
-      height: 100%;
+    @media (min-width: $screen-md-min) {
+      & > div {
+        height: 100%;
+      }
     }
   }
   .header-logo {
-    margin-top: 57px;
+    @media (min-width: $screen-md-min) {
+      margin-top: 57px;
+    }
+    margin-top: 12px;
     display: block;
   }
 }
@@ -45,17 +58,29 @@ header {
 }
 
 footer, .page_wraper:after {
-  height: $footer_height;
+  @media (min-width: $screen-md-min) {
+    height: 657px;
+  }
+
+  height: 500px;
 }
 
 .top-nav {
-  margin-top: 67px;
+  margin-top: 20px;
+  margin-bottom: 15px;
+
+  @media (min-width: $screen-md-min) {
+    margin-top: 67px;
+  }
   .top-nav__item {
     font-size: 16px;
     line-height: 24px;
     text-transform: uppercase;
     color: #202242;
-    margin-right: 30px;
+    @media (min-width: $screen-lg-min) {
+      margin-right: 30px;
+    }
+    margin-right: 8px;
     &:last-of-type {
       margin-right: 0;
     }
@@ -66,13 +91,15 @@ footer, .page_wraper:after {
 }
 
 .top-contacts {
-  border-left: 1px solid #ebebeb;
-  text-align: right;
-  height: 100%;
+  @media (min-width: $screen-md-min) {
+    border-left: 1px solid #ebebeb;
+    padding-top: 33px;
+    text-align: right;
+    height: 100%;
+  }
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  padding-top: 33px;
   line-height: 24px;
   .top-contacts__text {
     color: #202242;
@@ -122,11 +149,11 @@ footer, .page_wraper:after {
 
 .two-blocks {
   .two-blocks__item {
-    width: 50%;
-    float: left;
     height: 653px;
     .two-blocks__item_container {
-      width: 585px;
+      @media (min-width: $screen-lg-min) {
+        width: 585px;
+      }
       text-align: center;
       margin-top: 115px;
       .two-blocks__item_logo {
@@ -152,7 +179,9 @@ footer, .page_wraper:after {
         font-size: 14px;
         font-weight: 400;
         line-height: 24px;
-        width: 414px;
+        @media (min-width: $screen-lg-min) {
+          width: 414px;
+        }
         margin: 0 auto;
       }
       .two-blocks__item_button {
@@ -185,11 +214,13 @@ footer, .page_wraper:after {
 
 .our-features {
   background-color: #fbf8f1;
-  background-image: url(/_images/atop-bigbg.png);
+  @media (min-width: $screen-md-min) {
+    background-image: url(/_images/atop-bigbg.png);
+  }
   background-position: center bottom;
   background-repeat: no-repeat;
   padding-top: 102px;
-  padding-bottom: 118px;
+  padding-bottom: 78px;
   h2 {
     color: #202242;
     font-size: 48px;
@@ -210,6 +241,7 @@ footer, .page_wraper:after {
     font-size: 14px;
     font-weight: 400;
     line-height: 24px;
+    margin-bottom: 40px;
   }
   .our-features__item_title {
     color: #f4d320;
@@ -235,10 +267,15 @@ footer, .page_wraper:after {
 
 .big-picture {
   background-image: url(/_images/big_pic.png);
-  height: 794px;
-  -webkit-background-size: cover;
+  background-position: right center;
   background-size: cover;
   background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  @media (max-width: $screen-md-min) {
+    height: 590px;
+    padding-top: 53px;
+  }
+  height: 794px;
   padding-top: 206px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -346,12 +383,13 @@ footer, .page_wraper:after {
   }
   .our-clients__img {
     margin-top: 36px;
+    max-width: 100%;
   }
 }
 
 .our-reviews {
   margin-top: 83px;
-  margin-bottom: 110px;
+  margin-bottom: 30px;
   .our-reviews__item {
     background-color: #faf9f9;
     padding: 20px 17px 21px 19px;
@@ -360,6 +398,7 @@ footer, .page_wraper:after {
     font-style: italic;
     line-height: 24px;
     position: relative;
+    margin-bottom: 80px;
   }
   .our-reviews__item_author {
     color: #696969;
@@ -384,8 +423,10 @@ footer, .page_wraper:after {
     color: #fff;
     font-size: 36px;
     font-weight: 700;
-    line-height: 24px;
+    line-height: 1.2;
+
     margin-bottom: 16px;
+
   }
   .plans_and_prices__text {
     color: #67687b;
@@ -403,23 +444,42 @@ footer, .page_wraper:after {
     color: #202242;
     font-size: 18px;
     font-weight: 700;
-    float: right;
-    margin-right: 66px;
-    margin-top: -9px;
+    margin: 50px 0 auto;
+    transform: translateX(-50%);
+    position: relative;
+    left: 50%;
+
+    @media (min-width: $screen-md-min) {
+
+      transform: none;
+      position: static;
+      float: right;
+      margin: -9px 50px 0 0;
+    }
+
   }
 }
 
 footer {
   background-color: #363855;
   .lazy_map {
-    background-image: url(/_images/map_footer.png);
-    width: 860px;
+    @media (min-width: $screen-md-min) {
+      background-image: url(/_images/map_footer.png);
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    width: 100%;
     height: 409px;
     margin-top: 91px;
   }
   .footer-nav {
-    text-align: right;
-    margin-top: 132px;
+    @media (min-width: $screen-md-min) {
+      text-align: right;
+      margin-top: 132px;
+    }
+    text-align: center;
+    margin-top: 30px;
     .footer-nav__title {
       color: #fff;
       font-size: 18px;
@@ -433,22 +493,39 @@ footer {
       font-weight: 400;
       line-height: 35px;
       display: block;
-      width: 65px;
+      @media (min-width: $screen-md-min) {
+        width: 65px;
+      }
+      width: 100%;
       border-bottom: 1px solid #565770;
     }
   }
   nav {
-    float: right;
+    @media (min-width: $screen-md-min) {
+      text-align: right;
+      float: right;
+    }
+    text-align: center;
     margin-bottom: 33px;
   }
   .footer-soc {
     clear: both;
+    @media (max-width: $screen-md-min) {
+      text-align: center;
+    }
     text-align: right;
     a {
       font-family: FontAwesome;
       color: #ffe13e;
       font-size: 18px;
       font-weight: 400;
+      @media (max-width: $screen-md-min) {
+        text-align: center;
+        margin-left: 40px;
+        &:first-of-type {
+          margin-left: 0;
+        }
+      }
       margin-left: 19px;
     }
   }

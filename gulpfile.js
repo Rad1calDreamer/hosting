@@ -53,6 +53,7 @@ gulp.task('style:build', function () {
     gulp.src(path.src.style) //Выберем наш main.scss
         .pipe(sourcemaps.init()) //То же самое что и с js
         .pipe(sass()).on("error", function () {
+            console.log('FUCK!')
         })  //Скомпилируем
         .pipe(postcss([autoprefixer({browsers: ['last 2 version']})]))
         .pipe(cssnano({autoprefixer: false, convertValues: false})) //Сожмем
